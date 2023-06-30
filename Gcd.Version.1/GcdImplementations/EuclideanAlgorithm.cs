@@ -15,7 +15,24 @@ namespace Gcd.Version._1
         /// <returns>The GCD value.</returns>
         protected override int Func(int first, int second)
         {
-            throw new NotImplementedException();
+            if (first == 0)
+            {
+                return Math.Abs(second);
+            }
+
+            if (second == 0)
+            {
+                return Math.Abs(first);
+            }
+
+            while (second != 0)
+            {
+                int remainder = first % second;
+                first = second;
+                second = remainder;
+            }
+
+            return Math.Abs(first);
         }
     }
 }

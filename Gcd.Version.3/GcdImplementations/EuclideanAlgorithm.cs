@@ -10,7 +10,24 @@ namespace Gcd.Version._3
         /// <exception cref="ArgumentOutOfRangeException">Thrown when one or two numbers are int.MinValue.</exception>
         public int Calculate(int first, int second)
         {
-            throw new NotImplementedException();
+            if (first == 0)
+            {
+                return Math.Abs(second);
+            }
+
+            if (second == 0)
+            {
+                return Math.Abs(first);
+            }
+
+            while (second != 0)
+            {
+                int remainder = first % second;
+                first = second;
+                second = remainder;
+            }
+
+            return Math.Abs(first);
         }
     }
 }

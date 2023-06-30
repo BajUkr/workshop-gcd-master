@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Gcd.Version._1
 {
@@ -17,21 +18,29 @@ namespace Gcd.Version._1
         /// <exception cref="ArgumentOutOfRangeException">Thrown when one or two numbers are int.MinValue.</exception>
         public int Calculate(int first, int second)
         {
-            throw new NotImplementedException();
+            return this.Func(first, second);
         }
 
         /// <summary>
         /// Calculates GCD of two integers from [-int.MaxValue;int.MaxValue].
         /// </summary>
-        /// <param name="milliseconds">Method execution time in milliseconds.</param
         /// <param name="first">First integer.</param>
         /// <param name="second">Second integer.</param>
+        /// <param name="milliseconds">Method execution time in milliseconds.</param>
         /// <returns>The GCD value.</returns>
         /// <exception cref="ArgumentException">Thrown when all numbers are 0 at the same time.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when one or two numbers are int.MinValue.</exception>
         public int Calculate(int first, int second, out long milliseconds)
         {
-            throw new NotImplementedException();
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            int result = this.Func(first, second);
+
+            stopwatch.Stop();
+            milliseconds = stopwatch.ElapsedMilliseconds;
+
+            return result;
         }
 
         /// <summary>
